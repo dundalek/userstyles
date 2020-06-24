@@ -79,6 +79,12 @@ body {
   height: 23px !important;
 }
 
+/* Thinner header when items are collapsed. */
+@media(max-width: 1011px) {
+  .Header {
+    padding: 6px !important;
+  }
+}
 
 /* === Condensed pagehead === */
 
