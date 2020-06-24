@@ -8,6 +8,7 @@
 @author      Jakub Dundalek
 ==/UserStyle== */
 
+@-moz-document domain("github.com") {
 /* === Smaller line height === */
 
 /* Default is 1.5 which wastes too much space, 1.2 looks better, smaller values break layout too much. */
@@ -260,4 +261,6 @@ body {
 .signup-prompt,
 .js-notice {
   display: none;
+}
+
 }
