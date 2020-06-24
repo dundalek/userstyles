@@ -1,0 +1,263 @@
+/* ==UserStyle==
+@name        Github Classic
+@namespace   https://github.com/dundalek/userstyles
+@version     20.6.0
+@homepageURL https://github.com/dundalek/userstyles
+@updateURL   https://raw.githubusercontent.com/dundalek/userstyles/master/styles/github.user.css
+@license     The Unlicense
+@author      Jakub Dundalek
+==/UserStyle== */
+
+/* === Smaller line height === */
+
+/* Default is 1.5 which wastes too much space, 1.2 looks better, smaller values break layout too much. */
+body {
+  line-height: 1.2 !important;
+}
+
+/* Fixes icons in Star and Fork buttons that are otherwise misaligned with smaller line height. */
+.btn-with-count .octicon {
+  height: 13px !important;
+}
+
+/* === Centered header === */
+
+/* Thanks https://gist.github.com/montanaflynn/ca64cc0fcf55bcd4556a016bffd8a7e3 */
+@media(min-width: 1312px) {
+  body:not(.notifications-v2):not(.full-width) .pagehead.repohead > div {
+    width: 1280px;
+    margin: 0 auto;
+  }
+  body:not(.notifications-v2):not(.full-width) .pagehead.repohead > nav > ul {
+    width: 1216px;
+    margin: 0 auto;
+  }
+  .notifications-v2.notification-shelf > div {
+    width: 1280px;
+    margin: 0 auto;
+    padding-left: 32px;
+  }
+  body:not(.notifications-v2):not(.full-width) header.Header {
+    width: 1248px;
+    margin: 0 auto;
+  }
+  body:not(.notifications-v2):not(.full-width) div.Header {
+    width: 1012px;
+    margin: 0 auto;
+  }
+  body:not(.notifications-v2):not(.full-width) header.Header:before,
+  div.Header:before {
+    content: "";
+    background: #24292e;
+    border-bottom: 1px solid #343434 !important;
+    left: 0;
+    right: 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+}
+
+
+/* === Thinner header === */
+
+/* The header is too thick because the navigation link padding pushes it, let's make the padding smaller. */
+.Header nav a {
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
+}
+
+/* Make the height of the search input smaller to fit in better. */
+.Header .input-sm {
+  min-height: 24px !important;
+}
+
+/* Make the Github octocat logo smaller to fit the thinner header. */
+.Header .octicon {
+  height: 23px !important;
+}
+
+
+/* === Condensed pagehead === */
+
+/* Waste less vertical space for page head. */
+.pagehead {
+  padding-top: 14px !important;
+  margin-bottom: 12px !important;
+}
+
+/* Smaller vertical space under repo title. */
+.pagehead .mb-3 {
+  margin-bottom: 0px !important;
+}
+
+/* Smaller spacing around repo tabs. */
+.UnderlineNav-item {
+  padding: 4px 12px !important;
+}
+
+/* Unbold the active repo tab because it is too disctracting */
+.UnderlineNav-item.selected {
+  font-weight: 400 !important;
+}
+
+
+/* === Tab groups === */
+
+/* Split the tabs into groups
+   The most important are Code, Issues and Pull Requests.
+   The rest of them are used much less often and can be aligned right for better aestetics.
+*/
+
+/* Make the Pull Requests tab eat up space to align rest of the tabs to right. */
+.UnderlineNav-body li:nth-child(3) {
+  flex: 1;
+}
+
+/* Make the tab menu aligned with content. */
+@media(max-width: 1312px) {
+  body:not(.notifications-v2):not(.full-width) .pagehead.repohead > nav > ul {
+    width: 100%;
+  }
+}
+
+/* Dot menu for overflowing tabs kicks in way too early. */
+@media(min-width: 1080px) {
+  .pagehead .js-responsive-underlinenav-overflow {
+    display: none;
+  }
+}
+
+
+/* === Smaller border radius === */
+
+.avatar-user,
+.timeline-comment-label {
+  border-radius: 3px !important
+}
+
+.rounded-1 {
+  border-radius: 3px !important;
+}
+
+.btn {
+  border-radius: 3px !important;
+}
+
+.State,
+.Label,
+.IssueLabel {
+  border-radius: 3px !important;
+}
+
+/* Fixing the button groups below to not have border radius for inner edges. */
+
+.btn.btn-with-count {
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.btn.BtnGroup-item {
+  border-radius: 0 !important;
+}
+
+.BtnGroup-parent:first-child .btn.BtnGroup-item {
+  border-top-left-radius: 3px !important;
+  border-bottom-left-radius: 3px !important;
+}
+
+.social-count,
+.BtnGroup-parent:last-child .btn.BtnGroup-item {
+  border-top-right-radius: 3px !important;
+  border-bottom-right-radius: 3px !important;
+}
+
+
+/* === Button styles === */
+
+/* Bold text to make buttons stand out more, people are not eagles. */
+.btn {
+  font-weight: 600 !important;
+}
+
+/* Make the button background slightly grey, you can't click what can't see. */
+.btn:not(.btn-primary) {
+  background-color: #f7f7f7;
+}
+
+/* Make the othe buttons pop out less. Changing colors would be too brittle, so lets just use transparency. */
+.btn-primary {
+  opacity: 0.9 !important;
+}
+
+/* Issue status pops too much simirarly to primary buttons. */
+.State {
+  opacity: 0.85;
+}
+
+/* Numbers in tabs too distracting, tone the background down. */
+.Counter {
+  background-color: #ececec;
+}
+
+
+/* === Box headers === */
+
+/* Reclaim some vertical pixels by making the box header thinner */
+.Box-header {
+  padding: 10px 16px;
+}
+
+/* Making box header thinner on notifications pages needs special treatment. */
+.notifications-list .Box-header {
+  height: auto !important;
+}
+
+
+/* === File list tweaks === */
+
+/* Bring back border around files, who is supposed to read that soup of letters? */
+.repository-content [aria-labelledby="files"] .Box-row,
+.review-comment {
+  border-bottom: 1px solid #eaecef !important;
+}
+.repository-content [aria-labelledby="files"] .Box-row:last-child,
+.review-comment:last-child {
+  border-bottom: none !important;
+}
+
+/* Smaller spacing around the file icon */
+.repository-content [aria-labelledby="files"] .Box-row > div:nth-child(1) {
+  margin-right: 6px !important;
+  margin-left: -6px !important;
+}
+
+/* Blue file link looks better and brings consitency with other links on the page. */
+.repository-content [aria-labelledby="files"] .Box-row a.link-gray-dark {
+  color: #0366d6 !important;
+}
+
+/* === Tweak comments === */
+
+/* Make comments not so spaced out */
+.TimelineItem {
+  padding: 6px 0 !important;
+}
+.TimelineItem.pt-0 {
+  padding-top: 0 !important;
+}
+
+/* Slightly darker comment header to treat other people with respect and make their comments stand out more. */
+.timeline-comment:not(.current-user) .timeline-comment-header {
+  background-color: #f5f5f9;
+}
+
+
+/* === Hide Banners === */
+
+/* Ged rid of spammy banners */
+.signup-prompt,
+.js-notice {
+  display: none;
+}
