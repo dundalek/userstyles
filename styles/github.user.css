@@ -274,4 +274,33 @@ body {
   display: none;
 }
 
+
+/* === Show commit message === */
+
+/* Make the commited at message take its space but not grow, we will take the remaining space with the commit message. */
+.repository-content .Box-header .Details:not(.Details--on) div:nth-child(2) {
+  flex: 0 1 auto !important;
+}
+
+/* When not expanded show the first line of the latest commit message. */
+.repository-content .Box-header .Details:not(.Details--on) .Details-content--hidden {
+  display: block !important;
+  flex: 1 !important;
+  order: 0 !important;
+
+  max-height: 1.2em !important; /* This is based on global line-height */
+  padding: 0 !important;
+  margin: 0 !important;
+
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+/* Add spacing between CI status icon and commit message. */
+.repository-content .Box-header .Details .commit-build-statuses {
+  margin-right: 8px !important;
+}
+
+
 }
