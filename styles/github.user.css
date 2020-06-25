@@ -193,8 +193,13 @@ body {
   background-color: #f7f7f7;
 }
 
+/* Darker grey on hover state. */
+.btn:not(.btn-primary):hover {
+  background-color: #eee;
+}
+
 /* Make the othe buttons pop out less. Changing colors would be too brittle, so lets just use transparency. */
-.btn-primary {
+.btn-primary:not(:hover) {
   opacity: 0.9 !important;
 }
 
