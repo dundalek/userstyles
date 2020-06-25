@@ -269,4 +269,14 @@ body {
   display: none;
 }
 
+/* Show the latest commit message by default */
+.repository-content .Details:not(.Details--on) .Details-content--hidden {
+    display: block !important;
+}
+
+/* Remove the button that triggers showing the latest commit message */
+.repository-content .hidden-text-expander {
+    display: none !important;
+}
+
 }
