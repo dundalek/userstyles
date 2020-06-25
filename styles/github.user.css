@@ -91,7 +91,7 @@ body {
 /* Waste less vertical space for page head. */
 .pagehead {
   padding-top: 14px !important;
-  margin-bottom: 12px !important;
+  margin-bottom: 14px !important;
 }
 
 /* Smaller vertical space under repo title. */
