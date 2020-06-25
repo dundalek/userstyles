@@ -188,13 +188,16 @@ body {
   font-weight: 600 !important;
 }
 
-/* Make the button background slightly grey, you can't click what can't see. */
-.btn:not(.btn-primary) {
+/* Make the button background slightly grey, you can't click what can't see.
+   Do not override:
+   - primary buttons which are colorful (.e.g CLone)
+   - outline buttons which get colorful on hover (e.g. Back to notifications.) */
+.btn:not(.btn-primary):not(.btn-outline) {
   background-color: #f7f7f7;
 }
 
 /* Darker grey on hover state. */
-.btn:not(.btn-primary):hover {
+.btn:not(.btn-primary):not(.btn-outline):hover {
   background-color: #eee;
 }
 
