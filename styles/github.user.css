@@ -65,18 +65,18 @@ body {
 
 /* The header is too thick because the navigation link padding pushes it, let's make the padding smaller. */
 .Header nav a {
-  padding-top: 8px !important;
-  padding-bottom: 8px !important;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
 }
 
 /* Make the height of the search input smaller to fit in better. */
 .Header .input-sm {
-  min-height: 24px !important;
+  min-height: 25px !important;
 }
 
 /* Make the Github octocat logo smaller to fit the thinner header. */
-.Header .octicon {
-  height: 23px !important;
+.Header .octicon-mark-github {
+  height: 26px !important;
 }
 
 /* Thinner header when items are collapsed. */
