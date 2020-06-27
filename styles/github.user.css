@@ -158,6 +158,21 @@ body {
   border-radius: 3px !important;
 }
 
+/* Auto-complete suggestion box for issue numbers or mentions */
+.suggester {
+  border-radius: 3px !important;
+}
+
+.suggester li:first-child {
+  border-top-left-radius: 3px !important;
+  border-top-right-radius: 3px !important;
+}
+
+.suggester li:last-child {
+  border-bottom-left-radius: 3px !important;
+  border-bottom-right-radius: 3px !important;
+}
+
 /* Fixing the button groups below to not have border radius for inner edges. */
 
 .btn.btn-with-count {
