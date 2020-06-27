@@ -300,6 +300,11 @@ body {
   flex: 0 1 auto !important;
 }
 
+/* Prevent wrapping of the details container, otherwise the commits/branches/tags indicators get weirdly wrap on another line for smaller page widths. */
+.repository-content .Box-header .Details:not(.Details--on) {
+  flex-wrap: nowrap !important;
+}
+
 /* When not expanded show the first line of the latest commit message. */
 .repository-content .Box-header .Details:not(.Details--on) .Details-content--hidden {
   display: block !important;
