@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name        Github Classic
 @namespace   https://github.com/dundalek/userstyles
-@version     20.7.1
+@version     20.7.2
 @homepageURL https://github.com/dundalek/userstyles
 @updateURL   https://raw.githubusercontent.com/dundalek/userstyles/master/styles/github.user.css
 @license     The Unlicense
@@ -53,11 +53,11 @@ if optionCenteredPagehead {
 
 /* Thanks https://gist.github.com/montanaflynn/ca64cc0fcf55bcd4556a016bffd8a7e3 */
 @media(min-width: 1312px) {
-  body:not(.notifications-v2):not(.full-width) main > div:first-child > div {
+  body:not(.notifications-v2):not(.full-width) main > .bg-gray-light > div {
     width: 1280px;
     margin: 0 auto;
   }
-  body:not(.notifications-v2):not(.full-width) main > div:first-child > nav > ul {
+  body:not(.notifications-v2):not(.full-width) main > .bg-gray-light > nav > ul {
     width: 1216px;
     margin: 0 auto;
   }
@@ -125,13 +125,13 @@ if optionThinnerHeader {
 if optionCondensedPagehead {
 
 /* Waste less vertical space for page head. */
-body:not(.notifications-v2):not(.full-width) main > div:first-child {
+body:not(.notifications-v2):not(.full-width) main > .bg-gray-light {
   padding-top: 14px !important;
   margin-bottom: 14px !important;
 }
 
 /* Smaller vertical space under repo title. */
-body:not(.notifications-v2):not(.full-width) main > div:first-child .mb-3 {
+body:not(.notifications-v2):not(.full-width) main > .bg-gray-light .mb-3 {
   margin-bottom: 0px !important;
 }
 
