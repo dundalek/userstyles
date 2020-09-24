@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name        Youtube Custom
 @namespace   https://github.com/dundalek/userstyles
-@version     20.9.0
+@version     20.9.1
 @homepageURL https://github.com/dundalek/userstyles
 @updateURL   https://raw.githubusercontent.com/dundalek/userstyles/master/styles/youtube.user.css
 @license     The Unlicense
@@ -12,7 +12,7 @@
 
 ==/UserStyle== */
 
-@-moz-document domain("google.com") {
+@-moz-document domain("youtube.com") {
 
 /* Hide annoying popups */
 ytd-popup-container,
