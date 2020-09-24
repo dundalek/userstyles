@@ -1,0 +1,24 @@
+/* ==UserStyle==
+@name        Youtube Custom
+@namespace   https://github.com/dundalek/userstyles
+@version     20.9.0
+@homepageURL https://github.com/dundalek/userstyles
+@updateURL   https://raw.githubusercontent.com/dundalek/userstyles/master/styles/youtube.user.css
+@license     The Unlicense
+@author      Jakub Dundalek
+
+@preprocessor stylus
+
+
+==/UserStyle== */
+
+@-moz-document domain("google.com") {
+
+/* Hide annoying popups */
+ytd-popup-container,
+iron-overlay-backdrop,
+ytd-consent-bump-lightbox {
+  display: none !important;
+}
+
+}
