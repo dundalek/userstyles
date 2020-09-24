@@ -22,6 +22,7 @@
 @var checkbox optionAdjustBorderRadius "Border Radius" 1
 @var text optionAvatarBorderRadius "Avatar Border Radius" 3px
 @var text optionButtonBorderRadius "Button Border Radius" 3px
+@var checkbox optionHideZenhubSwitcherButton "Hide Zenhub switcher button" 1
 
 
 ==/UserStyle== */
@@ -394,5 +395,15 @@ if optionShowLastCommitMessage {
 
 }
 
+/* == Hide Zenhub Switcher button == */
+
+if optionHideZenhubSwitcherButton {
+
+/* Zenhub extension inserts extra button to switch repos, which makes the repo title mis-aligned. I never use it anyway so let's hide it. */
+.zh-repo-header-container {
+  display: none
+}
+
+}
 
 }
