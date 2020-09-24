@@ -30,6 +30,8 @@
 
 customLineHeight = 1.2
 customLineHeightEm = 1.2em
+pageHeadSelector = 'main > .bg-gray-light'
+nonFullWidthBodySelector = 'body:not(.notifications-v2):not(.full-width)'
 
 /* === Smaller line height === */
 
@@ -53,11 +55,11 @@ if optionCenteredPagehead {
 
 /* Thanks https://gist.github.com/montanaflynn/ca64cc0fcf55bcd4556a016bffd8a7e3 */
 @media(min-width: 1312px) {
-  body:not(.notifications-v2):not(.full-width) main > .bg-gray-light > div {
+  {nonFullWidthBodySelector} {pageHeadSelector} > div {
     width: 1280px;
     margin: 0 auto;
   }
-  body:not(.notifications-v2):not(.full-width) main > .bg-gray-light > nav > ul {
+  {nonFullWidthBodySelector} {pageHeadSelector} > nav > ul {
     width: 1216px;
     margin: 0 auto;
   }
@@ -66,15 +68,15 @@ if optionCenteredPagehead {
     margin: 0 auto;
     padding-left: 32px;
   }
-  body:not(.notifications-v2):not(.full-width) header.Header {
+  {nonFullWidthBodySelector} header.Header {
     width: 1248px;
     margin: 0 auto;
   }
-  body:not(.notifications-v2):not(.full-width) div.Header {
+  {nonFullWidthBodySelector} div.Header {
     width: 1012px;
     margin: 0 auto;
   }
-  body:not(.notifications-v2):not(.full-width) header.Header:before,
+  {nonFullWidthBodySelector} header.Header:before,
   div.Header:before {
     content: "";
     background: #24292e;
@@ -95,8 +97,8 @@ if optionCenteredPagehead {
 
 if optionThinnerHeader {
 
-/* The header is too thick because the navigation link padding pushes it, let's make the padding smaller. */
-.Header nav a {
+/* The header is too thick, let's make the padding smaller. */
+.Header {
   padding-top: 10px !important;
   padding-bottom: 10px !important;
 }
@@ -125,13 +127,13 @@ if optionThinnerHeader {
 if optionCondensedPagehead {
 
 /* Waste less vertical space for page head. */
-body:not(.notifications-v2):not(.full-width) main > .bg-gray-light {
+{nonFullWidthBodySelector} {pageHeadSelector} {
   padding-top: 14px !important;
   margin-bottom: 14px !important;
 }
 
 /* Smaller vertical space under repo title. */
-body:not(.notifications-v2):not(.full-width) main > .bg-gray-light .mb-3 {
+{nonFullWidthBodySelector} {pageHeadSelector} .mb-3 {
   margin-bottom: 0px !important;
 }
 
@@ -163,7 +165,7 @@ if optionTabGroups {
 
 /* Make the tab menu aligned with content. */
 @media(max-width: 1312px) {
-  body:not(.notifications-v2):not(.full-width) .pagehead.repohead > nav > ul {
+  {nonFullWidthBodySelector} .pagehead.repohead > nav > ul {
     width: 100%;
   }
 }
@@ -286,7 +288,8 @@ if optionThinnerBoxHeaders {
 
 /* Reclaim some vertical pixels by making the box header thinner */
 .Box-header {
-  padding: 10px 16px;
+  padding-top: 10px !important;
+  padding-bottom: 8px !important;
 }
 
 /* Making box header thinner on notifications pages needs special treatment. */
