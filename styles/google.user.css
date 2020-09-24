@@ -1,0 +1,21 @@
+/* ==UserStyle==
+@name        Google Custom
+@namespace   https://github.com/dundalek/userstyles
+@version     20.9.0
+@homepageURL https://github.com/dundalek/userstyles
+@updateURL   https://raw.githubusercontent.com/dundalek/userstyles/master/styles/google.user.css
+@license     The Unlicense
+@author      Jakub Dundalek
+
+@preprocessor stylus
+
+
+==/UserStyle== */
+
+@-moz-document domain("google.com") {
+
+/* Hide annoying popups */
+html { overflow: auto !important; }
+#lb { display: none !important; }
+
+}
