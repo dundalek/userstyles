@@ -23,6 +23,7 @@
 @var text optionAvatarBorderRadius "Avatar Border Radius" 3px
 @var text optionButtonBorderRadius "Button Border Radius" 3px
 @var checkbox optionHideZenhubSwitcherButton "Hide Zenhub switcher button" 1
+@var checkbox optionOverrideColors "Override with less saturated colors" 1
 
 
 ==/UserStyle== */
@@ -402,6 +403,16 @@ if optionHideZenhubSwitcherButton {
 /* Zenhub extension inserts extra button to switch repos, which makes the repo title mis-aligned. I never use it anyway so let's hide it. */
 .zh-repo-header-container {
   display: none
+}
+
+}
+
+/* == Override with less saturated colors == */
+
+if optionOverrideColors {
+
+:root,[data-color-mode=light][data-light-theme=light] {
+  --color-box-bg-info: #F1F8FF;
 }
 
 }
