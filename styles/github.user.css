@@ -1,28 +1,26 @@
 /* ==UserStyle==
 @name        Github Classic
 @namespace   https://github.com/dundalek/userstyles
-@version     21.8.0
+@version     23.2.0
 @homepageURL https://github.com/dundalek/userstyles
 @updateURL   https://raw.githubusercontent.com/dundalek/userstyles/master/styles/github.user.css
 @license     The Unlicense
 @author      Jakub Dundalek
 
 @preprocessor stylus
-@var checkbox optionCenteredPagehead "Centered Pagehead" 1
+@var checkbox optionClassicFont "Classic Font" 1
 @var checkbox optionCondensedPagehead "Condensed Pagehead" 1
 @var checkbox optionSmallerLineHeight "Smaller Line Height" 1
 @var checkbox optionThinnerHeader "Thinner Header" 1
-@var checkbox optionTabGroups "Tab Groups" 1
 @var checkbox optionThinnerBoxHeaders "Thinner Box Headers" 1
 @var checkbox optionFileList "Adjust File List" 1
 @var checkbox optionComments "Adjust Comments" 1
+@var checkbox optionTallerBuildStatuses "Taller Build Statuses" 1
 @var checkbox optionHideBanners "Hide Banners" 1
 @var checkbox optionButtonStyling "Button Styling" 1
-@var checkbox optionShowLastCommitMessage "Show Last Commit Message" 1
 @var checkbox optionAdjustBorderRadius "Border Radius" 1
 @var text optionAvatarBorderRadius "Avatar Border Radius" 3px
 @var text optionButtonBorderRadius "Button Border Radius" 3px
-@var checkbox optionHideZenhubSwitcherButton "Hide Zenhub switcher button" 1
 @var checkbox optionOverrideColors "Override with less saturated colors" 1
 
 
@@ -32,8 +30,16 @@
 
 customLineHeight = 1.2
 customLineHeightEm = 1.2em
-pageHeadSelector = 'main > .bg-gray-light'
-nonFullWidthBodySelector = 'body:not(.notifications-v2):not(.full-width)'
+
+
+/* === Classic fonts === */
+if optionClassicFont {
+
+body, .markdown-body {
+  font-family: Helvetica,Arial,sans-serif;
+}
+
+}
 
 /* === Smaller line height === */
 
@@ -47,49 +53,6 @@ body {
 /* Fixes icons in Star and Fork buttons that are otherwise misaligned with smaller line height. */
 .btn-with-count .octicon {
   height: 13px !important;
-}
-
-}
-
-/* === Centered header === */
-
-if optionCenteredPagehead {
-
-/* Thanks https://gist.github.com/montanaflynn/ca64cc0fcf55bcd4556a016bffd8a7e3 */
-@media(min-width: 1312px) {
-  {nonFullWidthBodySelector} {pageHeadSelector} > div {
-    width: 1280px;
-    margin: 0 auto;
-  }
-  {nonFullWidthBodySelector} {pageHeadSelector} > nav > ul {
-    width: 1216px;
-    margin: 0 auto;
-  }
-  .notifications-v2.notification-shelf > div {
-    width: 1280px;
-    margin: 0 auto;
-    padding-left: 32px;
-  }
-  {nonFullWidthBodySelector} header.Header {
-    width: 1248px;
-    margin: 0 auto;
-  }
-  {nonFullWidthBodySelector} div.Header {
-    width: 1012px;
-    margin: 0 auto;
-  }
-  {nonFullWidthBodySelector} header.Header:before,
-  div.Header:before {
-    content: "";
-    background: #24292e;
-    border-bottom: 1px solid #343434 !important;
-    left: 0;
-    right: 0;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    z-index: -1;
-  }
 }
 
 }
@@ -128,20 +91,26 @@ if optionThinnerHeader {
 
 if optionCondensedPagehead {
 
-/* Waste less vertical space for page head. */
-{nonFullWidthBodySelector} {pageHeadSelector} {
-  padding-top: 14px !important;
-  margin-bottom: 14px !important;
+/* Smaller top padding of the header */
+#repository-container-header.pt-3 {
+  padding-top: 12px !important;
 }
 
 /* Smaller vertical space under repo title. */
-{nonFullWidthBodySelector} {pageHeadSelector} .mb-3 {
-  margin-bottom: 0px !important;
+#repository-container-header > .mb-3 {
+  margin-bottom: 6px !important;
+  /* vertically center repo title */
+  align-items: center;
 }
 
-/* Smaller spacing around repo tabs. */
-.UnderlineNav-item {
-  padding: 4px 12px !important;
+/* Smaller vertical space around nav tabs */
+.UnderlineNav {
+  min-height: 36px;
+}
+/* Compensate smaller for smaller .UnderlineNav to make the orange active tab indicator visible (otherwise gets pushed too much to the bottom) */
+.UnderlineNav-item.selected::after, .UnderlineNav-item[aria-current]:not([aria-current="false"])::after,
+.UnderlineNav-item[role="tab"][aria-selected="true"]::after {
+  bottom: -4px;
 }
 
 /* Unbold the active repo tab because it is too disctracting */
@@ -150,37 +119,6 @@ if optionCondensedPagehead {
 }
 
 }
-
-/* === Tab groups === */
-
-/* Split the tabs into groups
-   The most important are Code, Issues and Pull Requests.
-   The rest of them are used much less often and can be aligned right for better aestetics.
-*/
-
-if optionTabGroups {
-
-/* Make the Pull Requests tab eat up space to align rest of the tabs to right. */
-.UnderlineNav-body li:nth-child(3) {
-  flex: 1;
-}
-
-/* Make the tab menu aligned with content. */
-@media(max-width: 1312px) {
-  {nonFullWidthBodySelector} .pagehead.repohead > nav > ul {
-    width: 100%;
-  }
-}
-
-/* Dot menu for overflowing tabs kicks in way too early. */
-@media(min-width: 1080px) {
-  .pagehead .js-responsive-underlinenav-overflow {
-    display: none;
-  }
-}
-
-}
-
 
 /* === Smaller border radius === */
 
@@ -203,6 +141,10 @@ if optionAdjustBorderRadius {
 .Label,
 .IssueLabel {
   border-radius: optionButtonBorderRadius !important;
+}
+
+.topic-tag {
+  border-radius: 8px !important;
 }
 
 /* Auto-complete suggestion box for issue numbers or mentions */
@@ -347,6 +289,26 @@ if optionComments {
 
 }
 
+/* === Larger height of build statuses === */
+
+if optionTallerBuildStatuses {
+
+.branch-action-item.open > .merge-status-list, .branch-action-item.open > .merge-status-list-wrapper > .merge-status-list {
+    max-height: 600px;
+}
+
+.commit-build-statuses .dropdown-menu {
+  min-width: 860px;
+  max-width: 860px;
+  right: -430px;
+}
+
+.commit-build-statuses .dropdown-menu .merge-status-list {
+  min-height: 600px;
+}
+
+}
+
 /* === Hide Banners === */
 
 if optionHideBanners {
@@ -359,60 +321,17 @@ if optionHideBanners {
 
 }
 
-
-/* === Show commit message === */
-
-if optionShowLastCommitMessage {
-
-/* Make the commited at message take its space but not grow, we will take the remaining space with the commit message. */
-.repository-content .Box-header .Details:not(.Details--on) div:nth-child(2) {
-  flex: 0 1 auto !important;
-}
-
-/* Prevent wrapping of the details container, otherwise the commits/branches/tags indicators get weirdly wrap on another line for smaller page widths. */
-.repository-content .Box-header .Details:not(.Details--on) {
-  flex-wrap: nowrap !important;
-}
-
-/* When not expanded show the first line of the latest commit message. */
-.repository-content .Box-header .Details:not(.Details--on) .Details-content--hidden {
-  display: block !important;
-  flex: 1 !important;
-  order: 0 !important;
-
-  max-height: customLineHeightEm !important; /* This is based on global line-height */
-  padding: 0 !important;
-  margin: 0 !important;
-
-  overflow: hidden !important;
-  text-overflow: ellipsis !important;
-  white-space: nowrap !important;
-}
-
-/* Add spacing between CI status icon and commit message. */
-.repository-content .Box-header .Details .commit-build-statuses {
-  margin-right: 8px !important;
-}
-
-}
-
-/* == Hide Zenhub Switcher button == */
-
-if optionHideZenhubSwitcherButton {
-
-/* Zenhub extension inserts extra button to switch repos, which makes the repo title mis-aligned. I never use it anyway so let's hide it. */
-.zh-repo-header-container {
-  display: none
-}
-
-}
-
 /* == Override with less saturated colors == */
 
 if optionOverrideColors {
 
 :root,[data-color-mode=light][data-light-theme=light] {
   --color-box-bg-info: #F1F8FF;
+  --color-alert-info-bg: #F1F8FF;
+
+  // These may need a little bit more saturation
+  --color-diff-blob-hunk-line-bg: #F1F8FF;
+  --color-diff-blob-hunk-num-bg: #F1F8FF;
 }
 
 }
