@@ -33,3 +33,7 @@ Tweaks:
 | ![Custom Spotify](doc/img/spotify-custom.png) | ![Original Spotify](doc/img/spotify-original.png) |
 |:-:|:-:|
 | Custom Userstyle | Original Spotify Redesign |
+
+#### Demo toggling options
+
+https://github.com/dundalek/userstyles/assets/755611/c7843d50-d7f4-4fe7-8c0a-9e125bc888be
