@@ -1,0 +1,90 @@
+/* ==UserStyle==
+@name        Spotify Classic
+@namespace   https://github.com/dundalek/userstyles
+@version     23.5.0
+@homepageURL https://github.com/dundalek/userstyles
+@updateURL   https://raw.githubusercontent.com/dundalek/userstyles/master/styles/spotify.user.css
+@license     The Unlicense
+@author      Jakub Dundalek
+
+@preprocessor stylus
+@var checkbox optionCondensedPanels "Condensed Panels" 1
+@var checkbox optionCondensedSidebar "Condensed Sidebar" 1
+
+==/UserStyle== */
+
+@-moz-document domain("open.spotify.com") {
+
+/* === Condensed Panels === */
+
+if optionCondensedPanels {
+
+/* get rid of panel gaps */
+.Root {
+    --panel-gap: 0px !important;
+}
+
+/* footer with playback status is a bit squeezed when setting --panel-gap: 0px, so compensate for that and set padding */
+footer[data-testid="now-playing-bar"] {
+    padding: 6px !important;
+}
+
+/* disable main view rounded corners which don't look right without gaps */
+div:has(>.main-view-container),
+header > div {
+    border-radius: 0 !important;
+
+}
+
+nav[aria-label="Main"] {
+    /* compensate for the shrinked spacing above Home/Search menu */
+    padding-top: 4px !important;
+    /* set background on menu so that black does not shine through panels cut corners */
+    /* easier than trying to hunt down nested panels selector to set border-radius to zero */
+    background: var(--background-base) !important;
+}
+
+}
+
+/* === Condensed Sidebar === */
+/* Hide the subtitle which is not very useful and make the image smaller, this allow to make the whole row smaller. */
+/* Note that virtual scrolling is a bit glitchy, so it is optional to toggle this off */
+
+if optionCondensedSidebar {
+
+/* make the row smaller height */
+ul[aria-label="Your Library"] li[role="listitem"] div[aria-labelledby^="listrow-title-spotify"] {
+    /* was 56px */
+    min-block-size: 24px !important;
+    grid-template-rows: 24px !important;
+    /* was 8px */
+    /*padding: 4px;*/
+}
+
+ul[aria-label="Your Library"] [aria-labelledby^="listrow-title-spotify"]  > * {
+    height: 24px !important;
+}
+
+/* Hide playlist owner in playlist sidebar */
+ul[aria-label="Your Library"] [id^="listrow-subtitle-spotify"] {
+    display:none;
+}
+
+/* playlist sidebar image, make it smaller, by default 48px */
+ul[aria-label="Your Library"] div:has(>img[data-testid="entity-image"]),
+ul[aria-label="Your Library"] div:has(>div>svg[data-testid="folder"])
+{
+    width: 24px !important;
+    height: 24px !important;
+}
+
+/* Less spacing between Home and Search menu items */
+nav[aria-label="Main"] > div > ul,
+nav[aria-label="Main"] header {
+    /* was 8px 12px */
+    padding: 0px 6px !important;
+}
+
+}
+
+}
