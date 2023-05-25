@@ -1,7 +1,8 @@
+
 /* ==UserStyle==
 @name        Github Classic
 @namespace   https://github.com/dundalek/userstyles
-@version     23.2.0
+@version     23.5.0
 @homepageURL https://github.com/dundalek/userstyles
 @updateURL   https://raw.githubusercontent.com/dundalek/userstyles/master/styles/github.user.css
 @license     The Unlicense
@@ -35,8 +36,11 @@ customLineHeightEm = 1.2em
 /* === Classic fonts === */
 if optionClassicFont {
 
-body, .markdown-body {
-  font-family: Helvetica,Arial,sans-serif;
+body,
+.markdown-body,
+div[data-portal-root=true][font-family="normal"] /* Override font in portal views, for example the new code view */
+{
+  font-family: Helvetica,Arial,sans-serif !important;
 }
 
 }
