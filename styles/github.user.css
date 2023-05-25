@@ -63,7 +63,8 @@ body {
 if optionThinnerHeader {
 
 /* The header is too thick, let's make the padding smaller. */
-.Header {
+.Header,
+.Header-old {
   padding-top: 10px !important;
   padding-bottom: 10px !important;
 }
@@ -125,6 +126,7 @@ if optionCondensedPagehead {
 if optionAdjustBorderRadius {
 
 .avatar-user,
+.avatar.circle,
 .timeline-comment-label {
   border-radius: optionAvatarBorderRadius !important
 }
