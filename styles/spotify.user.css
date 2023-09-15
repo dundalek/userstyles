@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name        Spotify Classic
 @namespace   https://github.com/dundalek/userstyles
-@version     23.5.0
+@version     23.9.0
 @homepageURL https://github.com/dundalek/userstyles
 @updateURL   https://raw.githubusercontent.com/dundalek/userstyles/master/styles/spotify.user.css
 @license     The Unlicense
@@ -10,6 +10,7 @@
 @preprocessor stylus
 @var checkbox optionCondensedPanels "Condensed Panels" 1
 @var checkbox optionCondensedSidebar "Condensed Sidebar" 1
+@var checkbox optionHidePodcasts "Hide Podcasts" 1
 
 ==/UserStyle== */
 
@@ -37,11 +38,16 @@ header > div {
 }
 
 nav[aria-label="Main"] {
-    /* compensate for the shrinked spacing above Home/Search menu */
-    padding-top: 4px !important;
     /* set background on menu so that black does not shine through panels cut corners */
     /* easier than trying to hunt down nested panels selector to set border-radius to zero */
     background: var(--background-base) !important;
+}
+
+if optionCondensedSidebar {
+    nav[aria-label="Main"] {
+        /* compensate for the shrinked spacing above Home/Search menu */
+        padding-top: 4px !important;
+    }
 }
 
 }
@@ -83,6 +89,16 @@ nav[aria-label="Main"] > div > ul,
 nav[aria-label="Main"] header {
     /* was 8px 12px */
     padding: 0px 6px !important;
+}
+
+}
+
+/* === Hide Podcasts === */
+
+if optionHidePodcasts {
+
+[data-testid="home-page"] [data-testid="component-shelf"][aria-label="Episodes for you"] {
+    display: none;
 }
 
 }
