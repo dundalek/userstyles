@@ -1,8 +1,7 @@
-
 /* ==UserStyle==
 @name        Github Classic
 @namespace   https://github.com/dundalek/userstyles
-@version     23.5.0
+@version     23.9.0
 @homepageURL https://github.com/dundalek/userstyles
 @updateURL   https://raw.githubusercontent.com/dundalek/userstyles/master/styles/github.user.css
 @license     The Unlicense
@@ -23,6 +22,7 @@
 @var text optionAvatarBorderRadius "Avatar Border Radius" 3px
 @var text optionButtonBorderRadius "Button Border Radius" 3px
 @var checkbox optionOverrideColors "Override with less saturated colors" 1
+@var checkbox optionHideFeed "Hide Home Feed" 0
 
 
 ==/UserStyle== */
@@ -325,6 +325,11 @@ if optionHideBanners {
   display: none;
 }
 
+/* Hide spammy copilot ads in code details header */
+[data-testid="copilot-popover-button"] {
+  display: none !important;
+}
+
 }
 
 /* == Override with less saturated colors == */
@@ -339,6 +344,19 @@ if optionOverrideColors {
   --color-diff-blob-hunk-line-bg: #F1F8FF;
   --color-diff-blob-hunk-num-bg: #F1F8FF;
 }
+
+}
+
+/* == Hide Home Feed == */
+/* The new "For You" feed is useless, might as well hide it to avoid distraction. */
+
+if optionHideFeed {
+
+/* feed-container[data-active-topic="for-you"] */
+[data-target="feed-container.content"] {
+  display: none;
+}
+
 
 }
 
