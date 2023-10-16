@@ -10,7 +10,7 @@ Then: 📦 [Install the Github Userstyle](https://raw.githubusercontent.com/dund
 
 #### Preview
 
-| ![Custom Github](doc/img/github-custom.png) | ![Original Github](doc/img/github-original.png) |
+| ![Custom Github](doc/img/github-2023-custom.png) | ![Original Github](doc/img/github-2023-original.png) |
 |:-:|:-:|
 | Custom Userstyle | Original Github |
 
