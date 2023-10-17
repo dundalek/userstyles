@@ -121,7 +121,8 @@ if optionAdjustBorderRadius {
   border-radius: optionButtonBorderRadius !important;
 }
 
-.btn {
+.btn,
+.Button {
   border-radius: optionButtonBorderRadius !important;
 }
 
@@ -179,7 +180,8 @@ if optionAdjustBorderRadius {
 if optionButtonStyling {
 
 /* Bold text to make buttons stand out more, people are not eagles. */
-.btn {
+.btn,
+.Button {
   font-weight: 600 !important;
 }
 
