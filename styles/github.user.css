@@ -207,12 +207,12 @@ if optionButtonStyling {
    Do not override:
    - primary buttons which are colorful (.e.g CLone)
    - outline buttons which get colorful on hover (e.g. Back to notifications.) */
-.btn:not(.btn-primary):not(.btn-outline) {
+html[data-color-mode=light] .btn:not(.btn-primary):not(.btn-outline) {
   background-color: #f7f7f7;
 }
 
 /* Darker grey on hover state. */
-.btn:not(.btn-primary):not(.btn-outline):hover {
+html[data-color-mode=light] .btn:not(.btn-primary):not(.btn-outline):hover {
   background-color: #eee;
 }
 
@@ -227,7 +227,7 @@ if optionButtonStyling {
 }
 
 /* Numbers in tabs too distracting, tone the background down. */
-.Counter {
+html[data-color-mode=light] .Counter {
   background-color: #ececec;
 }
 
@@ -291,7 +291,7 @@ if optionComments {
 }
 
 /* Slightly darker comment header to treat other people with respect and make their comments stand out more. */
-.timeline-comment:not(.current-user) .timeline-comment-header {
+html[data-color-mode=light]  .timeline-comment:not(.current-user) .timeline-comment-header {
   background-color: #f5f5f9;
 }
 
@@ -338,7 +338,7 @@ if optionHideBanners {
 
 if optionOverrideColors {
 
-:root,[data-color-mode=light][data-light-theme=light] {
+html[data-color-mode=light]:root,[data-color-mode=light][data-light-theme=light] {
   --color-box-bg-info: #F1F8FF;
   --color-alert-info-bg: #F1F8FF;
 
@@ -367,20 +367,20 @@ if optionHideFeed {
 
 if  optionDarkAppHeader {
 
-header.AppHeader {
+html[data-color-mode=light] header.AppHeader {
   --color-canvas-inset: #1c2128;
   --color-fg-default: #adbac7;
   --color-border-default: #444c56;
 }
 
-header.AppHeader .AppHeader-globalBar,
-header.AppHeader .AppHeader-localBar {
+html[data-color-mode=light] header.AppHeader .AppHeader-globalBar,
+html[data-color-mode=light] header.AppHeader .AppHeader-localBar {
   --color-canvas-inset: #f6f8fa;
   --color-fg-default: #1F2328;
   --color-border-default: #d0d7de;
 }
 
-header.AppHeader .AppHeader-localBar {
+html[data-color-mode=light] header.AppHeader .AppHeader-localBar {
   --AppHeader-bg: var(--color-canvas-inset);
   color: var(--color-fg-default);
   background: var(--AppHeader-bg);
@@ -390,8 +390,8 @@ header.AppHeader .AppHeader-localBar {
   border-bottom: 0px !important;
 }
 
-header.AppHeader div.AppHeader-globalBar {
-  /* Taken from the dark dimmed theme */
+html[data-color-mode=light] header.AppHeader div.AppHeader-globalBar {
+    /* Taken from the dark dimmed theme */
     --color-canvas-default-transparent: rgba(34,39,46,0);
     --color-page-header-bg: #22272e;
     --color-marketing-icon-primary: #6cb6ff;
