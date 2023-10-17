@@ -12,6 +12,7 @@
 @var checkbox optionCondensedPagehead "Condensed Pagehead" 1
 @var checkbox optionSmallerLineHeight "Smaller Line Height" 1
 @var checkbox optionThinnerHeader "Thinner Header" 1
+@var checkbox optionCenteredHeaderBar "Centered Header Bar" 1
 @var checkbox optionDarkAppHeader "Dark App Header" 1
 @var checkbox optionThinnerBoxHeaders "Thinner Box Headers" 1
 @var checkbox optionFileList "Adjust File List" 1
@@ -106,6 +107,23 @@ if optionCondensedPagehead {
 }
 
 }
+
+/* === Centered Header Bar === */
+
+if optionCenteredHeaderBar {
+
+@media (min-width: 1250px) {
+  .AppHeader-localBar > .UnderlineNav {
+    justify-content: center;
+  }
+
+  .AppHeader-localBar > .UnderlineNav .UnderlineNav-body {
+     min-width: 1225px
+  }
+}
+
+}
+
 
 /* === Smaller border radius === */
 
