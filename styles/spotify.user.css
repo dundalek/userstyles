@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name        Spotify Classic
 @namespace   https://github.com/dundalek/userstyles
-@version     23.9.0
+@version     24.8.0
 @homepageURL https://github.com/dundalek/userstyles
 @updateURL   https://raw.githubusercontent.com/dundalek/userstyles/master/styles/spotify.user.css
 @license     The Unlicense
@@ -11,6 +11,7 @@
 @var checkbox optionCondensedPanels "Condensed Panels" 1
 @var checkbox optionCondensedSidebar "Condensed Sidebar" 1
 @var checkbox optionHidePodcasts "Hide Podcasts" 1
+@var checkbox optionCenteredTopBar "Centered Top Bar" 1
 
 ==/UserStyle== */
 
@@ -102,5 +103,29 @@ if optionHidePodcasts {
 }
 
 }
+
+/* === Centered Top Bar === */
+
+/* It looks weird when back/forward buttons are so far from the home button and search input. */
+
+if optionCenteredTopBar {
+
+[data-testid="global-nav-bar"] {
+    justify-content: center;
+    margin: 6px;
+}
+
+[data-testid="global-nav-bar"] > div:nth-child(2) {
+    position: static;
+    flex: 0;
+}
+
+
+[data-testid="search-input"] {
+    min-width: 400px;
+}
+
+}
+
 
 }
