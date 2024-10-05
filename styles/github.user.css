@@ -1,7 +1,8 @@
+
 /* ==UserStyle==
 @name        Github Classic
 @namespace   https://github.com/dundalek/userstyles
-@version     24.3.0
+@version     24.10.0
 @homepageURL https://github.com/dundalek/userstyles
 @updateURL   https://raw.githubusercontent.com/dundalek/userstyles/master/styles/github.user.css
 @license     The Unlicense
@@ -33,13 +34,6 @@
 
 customLineHeight = 1.2
 customLineHeightEm = 1.2em
-
-/* .js-feed-item-view is both on https://github.com/dashboard-feed and https://github.com/dashboard but this structure is made to match only on `dashboard-feed` */
-main > div > .js-feed-item-view,
-main > div > .js-feed-item-view + * {
-  margin: 0 24px;
-}
-
 
 /* === Classic fonts === */
 if optionClassicFont {
@@ -371,6 +365,14 @@ if optionHideFeed {
 }
 
 
+}
+
+/* .js-feed-item-view is both on https://github.com/dashboard-feed and https://github.com/dashboard but this structure is made to match only on `dashboard-feed` */
+main > div > .js-feed-item-view > .body,
+main > div > .js-feed-item-view + * > .body,
+main > div > .body > .Details.js-details-container /* special selector for events "starred 2 repositories" */
+{
+  margin: 0 24px;
 }
 
 
