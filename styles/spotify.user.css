@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name        Spotify Classic
 @namespace   https://github.com/dundalek/userstyles
-@version     24.8.0
+@version     25.3.0
 @homepageURL https://github.com/dundalek/userstyles
 @updateURL   https://raw.githubusercontent.com/dundalek/userstyles/master/styles/spotify.user.css
 @license     The Unlicense
@@ -12,10 +12,26 @@
 @var checkbox optionCondensedSidebar "Condensed Sidebar" 1
 @var checkbox optionHidePodcasts "Hide Podcasts" 1
 @var checkbox optionCenteredTopBar "Centered Top Bar" 1
+@var checkbox optionHideExploreButton "Hide Explore Button" 0
+
 
 ==/UserStyle== */
 
 @-moz-document domain("open.spotify.com") {
+
+/* Hide Explore Premium button in header bar */
+[data-testid="upgrade-button"] {
+    display: none;
+}
+
+if optionHideExploreButton {
+
+/* Hiden the Explore button because its animation is too attention grabbing and distracting */
+[data-testid="action-bar-row"] > button[aria-label^="Explore "] {
+    display: none;
+}
+
+}
 
 /* === Condensed Panels === */
 
