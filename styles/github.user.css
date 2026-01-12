@@ -1,8 +1,7 @@
-
 /* ==UserStyle==
 @name        Github Classic
 @namespace   https://github.com/dundalek/userstyles
-@version     24.10.0
+@version     26.1.0
 @homepageURL https://github.com/dundalek/userstyles
 @updateURL   https://raw.githubusercontent.com/dundalek/userstyles/master/styles/github.user.css
 @license     The Unlicense
@@ -26,7 +25,7 @@
 @var text optionButtonBorderRadius "Button Border Radius" 3px
 @var checkbox optionOverrideColors "Override with less saturated colors" 1
 @var checkbox optionHideFeed "Hide Home Feed" 0
-
+@var checkbox optionHideCopilot "Hide Copilot Input" 0
 
 ==/UserStyle== */
 
@@ -34,6 +33,19 @@
 
 customLineHeight = 1.2
 customLineHeightEm = 1.2em
+
+if optionHideCopilot {
+/* hide ask copilot input on home */
+.copilotPreview__container {
+  display:none;
+}
+
+/* hide the copilot button in header bar */
+div[class*="ButtonGroup"]:has(a[href="/copilot"]) {
+  display: none;
+}
+
+}
 
 /* === Classic fonts === */
 if optionClassicFont {
@@ -1232,3 +1244,4 @@ html[data-color-mode=light] header.AppHeader .AppHeader-localBar {
 }
 
 }
+
